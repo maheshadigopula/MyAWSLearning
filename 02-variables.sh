@@ -6,3 +6,5 @@ b=20
 echo a
 echo $a
 echo ${a}
+
+echo "This is empty variables: $c"

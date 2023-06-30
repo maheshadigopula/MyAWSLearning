@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a="aud"
+a="aujd"
 
 if [ "$a" == "asd" ]; then
     echo "Value is in if"

@@ -3,9 +3,9 @@
 a="aud"
 
 if [ "$a" == "asd" ]; then
-    echo "Value is same"
-else 
-    echo "Value is not same"
-
-
+    echo "Value is in if"
+elif [ "$a" == "aud" ] 
+    echo "Value is in elif"
+else
+    echo "Value is not in both"
 fi

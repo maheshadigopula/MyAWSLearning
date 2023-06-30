@@ -2,6 +2,6 @@
 
 a="asd"
 
-if [ $a -eq "asd" ]; then
+if [ "$a" == "asd" ]; then
     echo "Value is same"
 fi

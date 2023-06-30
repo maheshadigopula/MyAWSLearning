@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a=10
+i=10
 
 while[$i -gt 0]; do
     echo "Value is $i"

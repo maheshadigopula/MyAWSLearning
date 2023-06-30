@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sample() {
-    echo -e "\e[35m I am in the function\e[0m"
+    echo -e "\e[35mI am in the function\e[0m"
 }
 
 echo "Calling function"

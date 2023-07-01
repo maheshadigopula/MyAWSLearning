@@ -21,6 +21,6 @@ DEFAULT_ROOT_PWD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print
 stat $?
 
 echo -n "Resetting the default root password :"
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BT 'RoboShop@1';" | mysqld -uroot -p${DEFAULT_ROOT_PWD} &>> $LOGFILE
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BT 'RoboShop@1';" | mysql -uroot -p${DEFAULT_ROOT_PWD} &>> $LOGFILE
 stat $?
 

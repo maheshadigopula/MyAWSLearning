@@ -46,9 +46,9 @@ sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /etc/systemd/system/catalogue.service &
 stat $?
 
 echo -n "Restarting ${COMPONENT} Service :"
-systemctl daemon-reload
-systemctl start catalogue
-systemctl enable catalogue
+systemctl daemon-reload &>> ${LOGFILE}
+systemctl start catalogue &>> ${LOGFILE}
+systemctl enable catalogue &>> ${LOGFILE}
 stat $?
 
 

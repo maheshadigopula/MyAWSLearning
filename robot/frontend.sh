@@ -1,7 +1,9 @@
 #!/bin/bash
 
 COMPONENT=frontend
-LOGFILE= /tmp/$COMPONENT.log
+
+
+source=common.sh
 
 yum install nginx -y &>> $LOGFILE
 systemctl enable nginx &>> $LOGFILE

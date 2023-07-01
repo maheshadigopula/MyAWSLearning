@@ -31,7 +31,7 @@ stat $?
 
 echo -n "Changing the ownership to ${APPUSER} :" 
 mv ${COMPONENT}-main ${COMPONENT}
-chown $APPUSER:$APPUSER /home/${APPUSER}/${COMPONENT}
+chown -R $APPUSER:$APPUSER /home/${APPUSER}/${COMPONENT}
 
 
 

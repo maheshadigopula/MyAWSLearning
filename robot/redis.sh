@@ -23,3 +23,6 @@ echo -n "Starting ${COMPONENT} Service :"
 systemctl enable redis &>> ${LOGFILE}
 systemctl start redis &>> ${LOGFILE}
 stat $?
+
+
+echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"

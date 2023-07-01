@@ -26,8 +26,8 @@ JAVA() {
 
     echo -n "Generating the artifacts :"
     cd /home/$APPUSER/$COMPONENT
-    mvn clean package
-    mv target/$COMPONENT-1.0.jar $COMPONENT.jar
+    mvn clean package &>> $LOGFILE
+    mv target/$COMPONENT-1.0.jar $COMPONENT.jar &>> $LOGFILE
     stat $?
 
     CONFIGURE_SERVICE

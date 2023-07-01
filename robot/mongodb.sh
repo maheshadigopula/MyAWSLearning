@@ -1,10 +1,9 @@
 #!/bin/bash
 
 COMPONENT=mongodb
-
-source /robot/commom.sh
+LOGFILE=/tmp/${COMPONENT}.log
 
 echo -n "Downloading ${COMPONENT}"
 curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/mongo.repo &>> ${LOGFILE}
-stat $?
+
 

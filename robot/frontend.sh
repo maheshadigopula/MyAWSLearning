@@ -25,6 +25,7 @@ stat $?
 
 echo -e -n "Starting nginx : "
 systemctl start nginx &>> /tmp/${COMPONENT}.log
+stat $?
 
 
 # curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"

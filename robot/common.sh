@@ -16,6 +16,22 @@ if [ $ID -ne 0 ]; then
     exit 1
 fi
 
+PYTHON() {
+    echo -n "Installing python :"
+    yum install python36 gcc python3-devel -y &>> $LOGFILE
+    stat $?
+
+    CREATE_USER
+    
+    DOWNLAOD_AND_EXTRACT
+
+    echo -n "Installing $COMPONENT Dependencies :"
+    cd /home/$APPUSER/$COMPONENT
+    pip3 install -r requirements.txt
+    stat $?
+    
+}
+
 JAVA() {
     echo -n "Installing Maven :"
     yum install maven -y &>> $LOGFILE

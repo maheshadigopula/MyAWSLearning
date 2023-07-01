@@ -42,6 +42,6 @@ stat $?
 
 echo -n "Injecting $COMPONENT schema :"
 cd $COMPONENT-main
-mysql -u root -pRoboShop@1 <shipping.sql $>> $LOGFILE
+mysql -u root -pRoboShop@1 < shipping.sql &>> $LOGFILE
 stat $?
 

@@ -2,6 +2,7 @@
 
 COMPONENT=mysql
 source robot/common.sh
+echo -e "\e[33m______ $COMPONENT Configuration Started _________ \e[0m"
 
 echo -n "Downloading the ${COMPONENT} Repo :"
 curl -s -L -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/mysql.repo &>> $LOGFILE
@@ -44,4 +45,6 @@ echo -n "Injecting $COMPONENT schema :"
 cd $COMPONENT-main
 mysql -u root -pRoboShop@1 < shipping.sql &>> $LOGFILE
 stat $?
+
+echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"
 

@@ -16,6 +16,23 @@ if [ $ID -ne 0 ]; then
     exit 1
 fi
 
+JAVA() {
+    echo -n "Installing Maven :"
+    yum install maven -y &>> $LOGFILE
+    stat $?
+
+    CREATE_USER
+    DOWNLAOD_AND_EXTRACT
+
+    echo -n "Generating the artifacts :"
+    cd /home/$APPUSER/$COMPONENT
+    mvn clean package
+    mv target/$COMPONENT-1.0.jar $COMPONENT.jar
+    stat $?
+
+    CONFIGURE_SERVICE
+}
+
 
 NODEJS() {
 
@@ -65,7 +82,7 @@ NPM_INSTALL() {
 CONFIGURE_SERVICE() {
     echo -n "Configuring ${COMPONENT} Dependencies :"
     mv /home/${APPUSER}/${COMPONENT}/systemd.service  /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
-    sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' -e 's/REDIS_ENDPOINT/172.31.0.147/' -e 's/MONGO_ENDPOINT/172.31.0.40/' -e 's/CATALOGUE_ENDPOINT/172.31.0.232/' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
+    sed -i -e 's/DBHOST/172.31.0.70/' -e 's/CARTENDPOINT/172.31.0.157/' -e 's/MONGO_DNSNAME/172.31.0.40/' -e 's/REDIS_ENDPOINT/172.31.0.147/' -e 's/MONGO_ENDPOINT/172.31.0.40/' -e 's/CATALOGUE_ENDPOINT/172.31.0.232/' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
     stat $?
 
     echo -n "Restarting ${COMPONENT} Service :"

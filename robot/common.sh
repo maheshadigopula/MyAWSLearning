@@ -37,6 +37,7 @@ PYTHON() {
     sed -i -e "/^uid/ c uid=$USER_ID" -e "/^gid/ c gid=$GROUP_ID" /home/$APPUSER/$COMPONENT/$COMPONENT.ini
     stat $?
 
+    CONFIGURE_SERVICE
     
 }
 

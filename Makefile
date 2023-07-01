@@ -1,5 +1,5 @@
 frontend:
-	bash frontend.sh
+	bash robot/frontend.sh
 
 mongodb:
-	bash mongodb.sh
+	bash robot/mongodb.sh

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 COMPONENT=mongodb
-LOGFILE=/tmp/${COMPONENT}.log
 
 source common.sh
 

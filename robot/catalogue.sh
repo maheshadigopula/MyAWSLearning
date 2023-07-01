@@ -14,11 +14,25 @@ stat $?
 
 id ${APPUSER} &>> $LOGFILE
 if [ $? -ne 0 ]; then
-
     echo -n "Creating Application User ${APPUSER} :"
     useradd ${APPUSER}  &>> $LOGFILE
     stat $?
 fi
+
+echo -n "Downloading the ${COMPONENT} :"
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+stat $?
+
+echo -n "Cleaning and Extarcting ${COMPONENT} :"
+rm -rf ./home/${APPUSER}${COMPONENT}
+cd /home/${APPUSER}
+unzip -o /tmp/${COMPONENT}.zip
+stat $?
+
+
+# mv ${COMPONENT}-main ${COMPONENT}
+# cd /home/${APPUSER}/${COMPONENT}
+# npm install
 
 
 

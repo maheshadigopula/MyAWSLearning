@@ -14,7 +14,11 @@ yum install redis-6.2.11 -y &>> ${LOGFILE}
 stat $?
 
 echo -n "Whitelising the ${COMPONENT} :"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf &>> ${LOGFILE}
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf &>> ${LOGFILE}
 stat $?
 
+echo -n "Starting ${COMPONENT} Service :"
+systemctl enable redis &>> ${LOGFILE}
+systemctl start redis &>> ${LOGFILE}
+stat $?

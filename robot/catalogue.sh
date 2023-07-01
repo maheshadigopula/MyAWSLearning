@@ -45,9 +45,11 @@ mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT
 sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /etc/systemd/system/catalogue.service &>> ${LOGFILE}
 stat $?
 
-
-
-
+echo -n "Restarting ${COMPONENT} Service :"
+systemctl daemon-reload
+systemctl start catalogue
+systemctl enable catalogue
+stat $?
 
 
 echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"

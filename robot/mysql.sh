@@ -20,5 +20,7 @@ echo -n "Fetching the default password :"
 DEFAULT_ROOT_PWD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}') 
 stat $?
 
-echo $DEFAULT_ROOT_PWD
+echo -n "Resetting the default root password :"
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BT 'RoboShop@1';" | mysqld -uroot -p${DEFAULT_ROOT_PWD} &>> $LOGFILE
+stat $?
 

@@ -30,6 +30,14 @@ PYTHON() {
     pip3 install -r requirements.txt &>> $LOGFILE
     stat $?
 
+    USER_ID=$(id -u $APPUSER)
+    GROUP_ID=$(id -g $APPUSER)
+
+    echo -n "Updating the UID and GID in the $COMPONENT.ini file :"
+    sed -i -e "/^uid/ c uid=$USER_ID" -e "/^gid/ c gid=$GROUP_ID" /home/$APPUSER/$COMPONENT/$COMPONENT.ini
+    stat $?
+
+    
 }
 
 JAVA() {

@@ -17,5 +17,5 @@ systemctl start rabbitmq-server
 stat $?
 
 echo -n "Creating Application user on $COMPONENT :"
-rabbitmqctl add_user roboshop roboshop123 &>> "${LOFGILE}"
+rabbitmqctl add_user roboshop roboshop123 &>> "${LOGFILE}"
 stat $?

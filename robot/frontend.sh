@@ -17,7 +17,7 @@ if [ $ID -ne 0 ]; then
     exit 1
 fi
 
-echo -e "\e[32m ______ $COMPONENT Configuration Started _________ \e[0m"
+echo -e "\e[33m ______ $COMPONENT Configuration Started _________ \e[0m"
 echo -e -n "Installing nginx : "
 yum install nginx -y &>> $LOGFILE
 systemctl enable nginx &>> $LOGFILE
@@ -52,4 +52,4 @@ systemctl enable nginx    &>> "${LOGFILE}"
 systemctl restart nginx   &>> "${LOGFILE}"
 stat $?
 
-echo -e "\e[32m ______ $COMPONENT Configuration Completed _________ \e[0m"
+echo -e "\e[33m ______ $COMPONENT Configuration Completed _________ \e[0m"

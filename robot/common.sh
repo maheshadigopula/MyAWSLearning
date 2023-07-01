@@ -44,7 +44,7 @@ DOWNLAOD_AND_EXTRACT() {
     stat $?
 
     echo -n "Cleaning and Extarcting ${COMPONENT} :"
-    rm -rf ./home/${APPUSER}${COMPONENT}
+    rm -rf ./home/${APPUSER} ${COMPONENT}
     cd /home/${APPUSER}
     unzip -o /tmp/${COMPONENT}.zip &>> ${LOGFILE}
     stat $?
@@ -64,8 +64,8 @@ NPM_INSTALL() {
 
 CONFIGURE_SERVICE() {
     echo -n "Configuring ${COMPONENT} Dependencies :"
-    mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
-    sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
+    mv /home/${APPUSER}/${COMPONENT}/systemd.service  /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
+    sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' -e 's/REDIS_ENDPOINT/172.31.0.147/' -e 's/MONGO_ENDPOINT/172.31.0.40//' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
     stat $?
 
     echo -n "Restarting ${COMPONENT} Service :"

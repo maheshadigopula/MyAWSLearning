@@ -39,9 +39,9 @@ cd /home/${APPUSER}/${COMPONENT}
 npm install &>> ${LOGFILE}
 stat $?
 
-echo -n "Configuring ${COMPONENT} Dependencied :"
+echo -n "Configuring ${COMPONENT} Dependencies :"
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service $>> ${LOGFILE}
-sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /etc/systemd/system/catalogue.service
+sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /etc/systemd/system/catalogue.service $>> ${LOGFILE}
 stat $?
 
 

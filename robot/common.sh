@@ -1,7 +1,5 @@
 APPUSER=roboshop
 LOGFILE="/tmp/$COMPONENT.log"
-set-hostname ${COMPONENT}
-
 
 stat() {
     if [ $1 -eq 0 ]; then 

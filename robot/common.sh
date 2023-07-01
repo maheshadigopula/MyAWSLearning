@@ -38,7 +38,7 @@ PYTHON() {
     stat $?
 
     CONFIGURE_SERVICE
-    
+
 }
 
 JAVA() {
@@ -107,7 +107,7 @@ NPM_INSTALL() {
 CONFIGURE_SERVICE() {
     echo -n "Configuring ${COMPONENT} Dependencies :"
     mv /home/${APPUSER}/${COMPONENT}/systemd.service  /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
-    sed -i -e 's/DBHOST/172.31.0.70/' -e 's/CARTENDPOINT/172.31.0.157/' -e 's/MONGO_DNSNAME/172.31.0.40/' -e 's/REDIS_ENDPOINT/172.31.0.147/' -e 's/MONGO_ENDPOINT/172.31.0.40/' -e 's/CATALOGUE_ENDPOINT/172.31.0.232/' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
+    sed -i -e 's/AMQPHOST/172.31.0.196/' -e 's/USERHOST/172.31.0.29/' -e 's/CARTHOST/172.31.0.157/' -e 's/DBHOST/172.31.0.70/' -e 's/CARTENDPOINT/172.31.0.157/' -e 's/MONGO_DNSNAME/172.31.0.40/' -e 's/REDIS_ENDPOINT/172.31.0.147/' -e 's/MONGO_ENDPOINT/172.31.0.40/' -e 's/CATALOGUE_ENDPOINT/172.31.0.232/' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
     stat $?
 
     echo -n "Restarting ${COMPONENT} Service :"

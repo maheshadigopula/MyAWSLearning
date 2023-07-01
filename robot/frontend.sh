@@ -34,6 +34,7 @@ mv static/* . &>> $LOGFILE
 rm -rf ${COMPONENT}-main README.md &>> $LOGFILE
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
 stat $?
+
  
 echo -n "Restarting Nignx :"
 systemctl enable nginx    &>> "${LOGFILE}"

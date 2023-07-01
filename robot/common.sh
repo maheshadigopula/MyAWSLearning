@@ -19,7 +19,7 @@ fi
 
 NODEJS() {
 
-    echo -n "Coonfiguring NodeJS Repo :"
+    echo -n "Configuring NodeJS Repo :"
     curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  &>> $LOGFILE
     yum install nodejs -y &>> $LOGFILE
     stat $?
@@ -65,7 +65,7 @@ NPM_INSTALL() {
 CONFIGURE_SERVICE() {
     echo -n "Configuring ${COMPONENT} Dependencies :"
     mv /home/${APPUSER}/${COMPONENT}/systemd.service  /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
-    sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' -e 's/REDIS_ENDPOINT/172.31.0.147/' -e 's/MONGO_ENDPOINT/172.31.0.40//' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
+    sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' -e 's/REDIS_ENDPOINT/172.31.0.147/' -e 's/MONGO_ENDPOINT/172.31.0.40/' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
     stat $?
 
     echo -n "Restarting ${COMPONENT} Service :"

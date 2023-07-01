@@ -9,3 +9,6 @@ catalogue:
 
 redis:
 	bash robot/redis.sh
+
+user:
+	bash robot/user.sh

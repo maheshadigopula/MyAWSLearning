@@ -23,3 +23,8 @@ if [ $? -ne 0 ]; then
     rabbitmqctl add_user roboshop roboshop123 &>> "${LOGFILE}"
     stat $?
 fi
+
+echo -n "Adding permissions to ${APPUSER} :"
+rabbitmqctl set_user_tags roboshop administrator
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+stat $?

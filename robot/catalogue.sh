@@ -29,8 +29,13 @@ cd /home/${APPUSER}
 unzip -o /tmp/${COMPONENT}.zip
 stat $?
 
+echo -n "Changing the ownership to ${APPUSER} :" 
+mv ${COMPONENT}-main ${COMPONENT}
+chown $APPUSER:$APPUSER /home/${APPUSER}/${COMPONENT}
 
-# mv ${COMPONENT}-main ${COMPONENT}
+
+
+
 # cd /home/${APPUSER}/${COMPONENT}
 # npm install
 

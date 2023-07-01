@@ -13,11 +13,11 @@ stat $?
 
 echo -n "Starting $COMPONENT :"
 systemctl enable rabbitmq-server &>> $LOGFILE
-systemctl start rabbitmq-server
+systemctl start rabbitmq-server &>> $LOGFILE
 stat $?
 
 
-rabbitmqctl list_users | grep ${APPUSER} &>> $LOGFILE
+sudo rabbitmqctl list_users | grep ${APPUSER} &>> $LOGFILE
 if [ $? -ne 0 ]; then 
     echo -n "Creating Application user on $COMPONENT :"
     rabbitmqctl add_user roboshop roboshop123 &>> "${LOGFILE}"

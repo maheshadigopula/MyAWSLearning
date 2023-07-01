@@ -17,7 +17,7 @@ if [ $ID -ne 0 ]; then
 fi
 
 PYTHON() {
-    echo -n "Installing python :"
+    echo -n "Installing python and other dependencies :"
     yum install python36 gcc python3-devel -y &>> $LOGFILE
     stat $?
 

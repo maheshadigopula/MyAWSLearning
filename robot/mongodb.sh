@@ -43,4 +43,6 @@ mongo < users.js &>> ${LOGFILE}
 stat $?
 
 
+
+
 echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"

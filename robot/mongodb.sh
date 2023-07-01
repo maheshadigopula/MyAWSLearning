@@ -8,10 +8,10 @@ curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/
 stat $?
 
 echo -e -n "\eInstalling ${COMPONENT} :"
-yum install -y mongodb-org
+yum install -y mongodb-org &>> $LOGFILE
 stat $?
 
-Echo -e -n "Starting ${COMPONENT} :"
+echo -e -n "Starting ${COMPONENT} :"
 systemctl enable mongod
 systemctl start mongod
 stat $?

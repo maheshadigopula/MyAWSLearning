@@ -34,10 +34,11 @@ mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT &>> ${LOGFILE}
 chown -R $APPUSER:$APPUSER /home/${APPUSER}/${COMPONENT}
 stat $?
 
+echo -n "Installing ${COMPONENT} Dependencies :"
+cd /home/${APPUSER}/${COMPONENT}
+npm install
+stat $?
 
-
-# cd /home/${APPUSER}/${COMPONENT}
-# npm install
 
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMPONENT=redis
-source robot/redis.sh
+source robot/common.sh
 
 echo -e "\e[33m______ $COMPONENT Configuration Started _________ \e[0m"
 

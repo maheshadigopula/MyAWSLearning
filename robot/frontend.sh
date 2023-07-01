@@ -38,6 +38,7 @@ stat $?
 
 echo -e -n "Extracting the ${COMPONENT} : "
 unzip /tmp/${COMPONENT}.zip &>> $LOGFILE
+stat $?
 
 echo -e -n "Copying the ${COMPONENT} : "
 mv ${COMPONENT}-main/* . &>> $LOGFILE

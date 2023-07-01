@@ -1,6 +1,6 @@
 APPUSER=roboshop
 LOGFILE="/tmp/$COMPONENT.log"
-
+set-hostname ${COMPONENT}
 
 
 stat() {

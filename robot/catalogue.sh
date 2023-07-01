@@ -36,7 +36,7 @@ stat $?
 
 echo -n "Installing ${COMPONENT} Dependencies :"
 cd /home/${APPUSER}/${COMPONENT}
-npm install
+npm install &>> ${LOGFILE}
 stat $?
 
 

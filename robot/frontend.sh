@@ -4,6 +4,7 @@ COMPONENT=frontend
 
 source=common.sh
 
+userCheck 
 
 echo -e "\e[33m----------Installing nginx----------\e[0m"
 echo -e -n "Installing nginx : "

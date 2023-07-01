@@ -1,7 +1,8 @@
 #!/bin/bash
 
 COMPONENT=mongodb
-source /robot/common.sh
+
+source robot/common.sh
 
 echo -e "\e[33m______ $COMPONENT Configuration Started _________ \e[0m"
 

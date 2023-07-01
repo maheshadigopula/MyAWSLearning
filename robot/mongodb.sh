@@ -11,7 +11,7 @@ curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/
 stat $?
 
 echo -e -n "Installing ${COMPONENT} :"
-yum install -y mongodb-org &>> $LOGFILE
+yum install -y ${COMPONENT}-org &>> $LOGFILE
 stat $?
 
 echo -e -n "Starting ${COMPONENT} :"
@@ -28,16 +28,16 @@ systemctl restart mongod
 stat $?
 
 echo -n "Downloading the ${COMPONENT} schema :"
-curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 stat $?
 
 echo -n "Extracting the ${COMPONENT} schema file :"
 cd /tmp
-unzip -o mongodb.zip &>> ${LOGFILE}
+unzip -o ${COMPONENT}.zip &>> ${LOGFILE}
 stat $?
 
 echo -n "Injecting the schema :"
-cd mongodb-main &>> ${LOGFILE}
+cd ${COMPONENT}-main &>> ${LOGFILE}
 mongo < catalogue.js &>> ${LOGFILE}
 mongo < users.js &>> ${LOGFILE}
 stat $?

@@ -42,13 +42,13 @@ stat $?
 echo -n "Configuring ${COMPONENT} Dependencies :"
 
 mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
-sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /etc/systemd/system/catalogue.service &>> ${LOGFILE}
+sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
 stat $?
 
 echo -n "Restarting ${COMPONENT} Service :"
 systemctl daemon-reload &>> ${LOGFILE}
-systemctl start catalogue &>> ${LOGFILE}
-systemctl enable catalogue &>> ${LOGFILE}
+systemctl start ${COMPONENT} &>> ${LOGFILE}
+systemctl enable ${COMPONENT} &>> ${LOGFILE}
 stat $?
 
 

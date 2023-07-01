@@ -16,7 +16,25 @@ systemctl enable mongod
 systemctl start mongod
 stat $?
 
-echo -n "whitelisting the ${COMPONENT}"
+echo -n "whitelisting the ${COMPONENT} :"
 sed -i -e  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
+echo -n "Restarting the ${COMPONENT} :"
+systemctl restart mongod
+stat $?
+
+echo -n "Downloading the ${COMPONENT} schema :"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+stat $?
+
+echo -n "Extracting the ${COMPONENT} schema file :"
+cd /tmp
+unzip mongodb.zip &>> ${LOGFILE}
+stat $?
+
+echo -n "Injecting the schema :"
+cd mongodb-main &>> ${LOGFILE}
+mongo < catalogue.js &>> ${LOGFILE}
+mongo < users.js &>> ${LOGFILE}
+stat $?

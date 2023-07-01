@@ -1,5 +1,5 @@
 APPUSER=roboshop
-LOFGILE="/tmp/$COMPONENT.log"
+LOGFILE="/tmp/$COMPONENT.log"
 
 
 

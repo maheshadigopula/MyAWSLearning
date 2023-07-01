@@ -16,3 +16,9 @@ systemctl enable mysqld &>> $LOGFILE
 systemctl start mysqld &>> $LOGFILE
 stat $?
 
+echo -n "Fetching the default password :"
+DEFAULT_ROOT_PWD=$(grep 'A temporary password' /var/log/mysql.log | awk '{print %NF}') 
+sat $?
+
+echo DEFAULT_ROOT_PWD
+

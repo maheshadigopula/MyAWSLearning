@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COMPONENT=frontend
-LOGFILE=/tmp/${COMPONENT}.log
+
 
 source robot/common.sh
 

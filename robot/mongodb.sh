@@ -3,6 +3,8 @@
 COMPONENT=mongodb
 source common.sh
 
+echo -e "\e[33m______ $COMPONENT Configuration Started _________ \e[0m"
+
 echo -n "Downloading ${COMPONENT} :"
 curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/mongo.repo &>> ${LOGFILE}
 stat $?
@@ -38,3 +40,6 @@ cd mongodb-main &>> ${LOGFILE}
 mongo < catalogue.js &>> ${LOGFILE}
 mongo < users.js &>> ${LOGFILE}
 stat $?
+
+
+echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"

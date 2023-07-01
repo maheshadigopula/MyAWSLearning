@@ -15,3 +15,15 @@ user:
 
 cart:
 	bash robot/cart.sh
+
+mysql:
+	bash robot/mysql.sh
+
+shipping:
+	bash robot/shipping.sh
+
+rabbitmq:
+	bash robot/rabbitmq.sh
+
+payment:
+	bash robot/payment.sh

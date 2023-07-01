@@ -40,8 +40,8 @@ npm install &>> ${LOGFILE}
 stat $?
 
 echo -n "Configuring ${COMPONENT} Dependencies :"
-sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /home/${APPUSER}/${COMPONENT}/systemd.service $>> ${LOGFILE}
-mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service $>> ${LOGFILE}
+sed -i -e 's/MONGO_DNSNAME/172.31.0.40/' /home/${APPUSER}/${COMPONENT}/systemd.service &>> ${LOGFILE}
+mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>> ${LOGFILE}
 
 stat $?
 

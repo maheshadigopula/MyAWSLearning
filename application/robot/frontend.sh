@@ -11,14 +11,19 @@ systemctl enable nginx &>> $LOGFILE
 systemctl start nginx &>> $LOGFILE
 stat $?
 
-echo -n "Extracting the $COMPONENT: "
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip" &>> $LOGFILE
+echo -n "Downloading the $COMPONENT: "
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>> $LOGFILE
 stat $?
 
-# cd /usr/share/nginx/html
-# rm -rf *
-# unzip /tmp/frontend.zip
-# mv frontend-main/* .
-# mv static/* .
-# rm -rf frontend-main README.md
-# mv localhost.conf /etc/nginx/default.d/roboshop.conf
+echo -n "Clearing the Default content: "
+cd /usr/share/nginx/html 
+rm -rf * &>> $LOGFILE
+stat $?
+
+echo -n "Extracting the $COMPONENT: "
+unzip /tmp/frontend.zip &>> $LOGFILE
+mv frontend-main/* . &>> $LOGFILE
+mv static/* . &>> $LOGFILE
+rm -rf frontend-main README.md
+mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?

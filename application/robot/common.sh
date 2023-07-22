@@ -1,3 +1,3 @@
-APPUSER = roboshop
-LOGFILE = "/tmp/$COMPONENT.log"
+APPUSER=roboshop
+LOGFILE="/tmp/$COMPONENT.log"
 

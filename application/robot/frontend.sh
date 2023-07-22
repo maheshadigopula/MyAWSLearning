@@ -27,3 +27,9 @@ mv static/* . &>> $LOGFILE
 rm -rf $COMPONENT-main README.md
 mv localhost.conf /etc/nginx/default.d/$APPUSER.conf
 stat $?
+
+
+echo -n "Restarting the $COMPONENT: "
+systemctl daemon-reload
+systemctl restart nginx &>> $LOGFILE
+stat $?

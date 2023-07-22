@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPONENT = frontend
+COMPONENT= frontend
 source common.sh
 
 echo -e "\e[33m-------------------$COMPONENT Configuration started--------------------"

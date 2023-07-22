@@ -16,7 +16,7 @@ systemctl start mongod &>> $LOGFILE
 stat $?
 
 echo -n "whitelisting the ${COMPONENT} :"
-sed -i -e 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>> $LOGFILE
+sed -i -e  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>> $LOGFILE
 stat $?
 
 echo -n "Restarting the ${COMPONENT} :"

@@ -5,24 +5,38 @@ source common.sh
 
 echo -e "\e[33m-------------------$COMPONENT Configuration started--------------------\e[0m"
 echo -n "Downloading ${COMPONENT} :"
-curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
+curl -s -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/mongo.repo
 stat $?
 
 
 echo -e -n "Installing ${COMPONENT} :"
-yum install -y mongodb-org
+yum install -y $COMPONENT-org &>> $LOGFILE
 systemctl enable mongod
-systemctl start mongod
+systemctl start mongod &>> $LOGFILE
+stat $?
+
+echo -n "whitelisting the ${COMPONENT} :"
+sed -i -e 's/127.0.0.1/0.0.0.0' /etc/mongod.conf
+stat $?
+
+echo -n "Restarting the ${COMPONENT} :"
+systemctl restart mongod
+stat $?
+
+echo -n "Downloading the ${COMPONENT} schema :"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
 
 
-# systemctl restart mongod
+echo -n "Extracting the ${COMPONENT} schema file :"
+cd /tmp
+unzip $COMPONENT.zip
+stat $?
 
-# curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+echo -n "Injecting the schema :"
+cd $COMPONENT-main
+mongo < catalogue.js
+mongo < users.js
+stat $?
 
-# cd /tmp
-# unzip mongodb.zip
-# cd mongodb-main
-# mongo < catalogue.js
-# mongo < users.js
-
+echo -e "\e[33m---------------------------- $COMPONENT Configuration Completed -------------------------- \e[0m"

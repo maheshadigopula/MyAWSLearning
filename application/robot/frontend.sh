@@ -12,8 +12,8 @@ systemctl start nginx &>> $LOGFILE
 stat $?
 
 echo -n "Extracting the $COMPONENT: "
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
-
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip" &>> $LOGFILE
+stat $?
 
 # cd /usr/share/nginx/html
 # rm -rf *

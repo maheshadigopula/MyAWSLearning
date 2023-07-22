@@ -16,3 +16,13 @@ NODEJS() {
     yum install nodejs -y &>> $LOGFILE
     stat $?
 }
+
+CREATE_USER() {
+    id $APPUSER &>> $LOGFILE
+    if [ $? -ne 0 ]; then
+        echo -n "Creating Application User ${APPUSER} :"
+        useradd $APPUSER &>> $LOGFILE
+        stat $?
+    fi
+    
+}

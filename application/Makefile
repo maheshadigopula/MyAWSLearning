@@ -1,0 +1,3 @@
+frontend:
+	bash robot/frontend
+

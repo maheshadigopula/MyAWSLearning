@@ -1,11 +1,9 @@
 #!/bin/bash
 
 COMPONENT=frontend
-
-
 source robot/common.sh
 
-echo -e "\e[33m______ $COMPONENT Configuration Started _________ \e[0m"
+echo -e "\e[33m______u $COMPONENT Configuration Started _________ \e[0m"
 echo -e -n "Installing nginx : "
 yum install nginx -y &>> $LOGFILE
 systemctl enable nginx &>> $LOGFILE

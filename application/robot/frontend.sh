@@ -3,7 +3,7 @@
 COMPONENT=frontend
 source common.sh
 
-echo -e "\e[33m-------------------$COMPONENT Configuration started--------------------"
+echo -e "\e[33m-------------------$COMPONENT Configuration started--------------------\e[0m"
 
 echo -n "Installing Nginx: "
 yum install nginx -y  &>> $LOGFILE

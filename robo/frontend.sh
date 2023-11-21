@@ -29,7 +29,7 @@ echo -n "Installing Ngnix: "
 yum install nginx &>>$Logfile
 stat $?
 
-echo -e "Starting Nginx: "
+echo -n "Starting Nginx: "
 systemctl start nginx
 stat $?
 

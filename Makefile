@@ -1,29 +1,29 @@
 frontend:
-	bash robot/frontend.sh
+	bash robo/frontend.sh
 
 mongodb:
-	bash robot/mongodb.sh
+	bash robo/mongodb.sh
 
 catalogue:
-	bash robot/catalogue.sh
+	bash robo/catalogue.sh
 
 redis:
-	bash robot/redis.sh
+	bash robo/redis.sh
 
 user:
-	bash robot/user.sh
+	bash robo/user.sh
 
 cart:
-	bash robot/cart.sh
+	bash robo/cart.sh
 
 mysql:
-	bash robot/mysql.sh
+	bash robo/mysql.sh
 
 shipping:
-	bash robot/shipping.sh
+	bash robo/shipping.sh
 
 rabbitmq:
-	bash robot/rabbitmq.sh
+	bash robo/rabbitmq.sh
 
 payment:
-	bash robot/payment.sh
+	bash robo/payment.sh

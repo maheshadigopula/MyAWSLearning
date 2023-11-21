@@ -25,14 +25,14 @@ stat()
 
 echo -e "\e[32m________$COMPONENT Configuration Started_________\e[0m"
 
-echo -n "Installing Ngnix: "
+echo -n "Installing Ngnix:"
 yum install nginx &>>$Logfile
 stat $?
 
-echo -n "Starting Nginx: "
+echo -n "Starting Nginx:"
 systemctl start nginx
 stat $?
 
-echo -n "Downloading $COMPONENT: "
+echo -n "Downloading $COMPONENT:"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?

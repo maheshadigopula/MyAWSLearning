@@ -36,3 +36,19 @@ stat $?
 echo -n "Downloading $COMPONENT:"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
+
+echo -e -n "Clearing the default content: "
+cd /usr/share/nginx/html
+rm -rf *
+stat $?
+
+echo -e -n "Extracting the $COMPONENT:"
+unzip /tmp/$COMPONENT.zip
+stat $?
+
+echo -e -n "Copying the ${COMPONENT}: "
+mv frontend-main/* .
+mv static/* .
+rm -rf frontend-main README.md
+mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?

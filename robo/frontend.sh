@@ -5,7 +5,7 @@ set -e
 COMPONENT=frontend
 
 
-ID={ id -u }
+ID=$(id -u)
 if [ $ID -ne 0 ] ; then
     echo -e "\e[33m You need to run as root user or use Sudo\e[0m"
     exit 1

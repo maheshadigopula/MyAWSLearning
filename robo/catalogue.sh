@@ -11,9 +11,9 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>
 yum install nodejs -y &>>$Logfile
 stat $?
 
-id $APPUSER
+id $APPUSER &>>$Logfile
 if [ $? -ne 0 ] ; then
-    echo -e "Creating user $APPUSER:"
+    echo -n "Creating user $APPUSER:"
     useradd $APPUSER &>>$Logfile
     stat $?
 fi

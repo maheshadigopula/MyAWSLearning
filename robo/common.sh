@@ -1,4 +1,4 @@
-set -e
+
 
 Logfile="/tmp/$COMPONENT.log"
 

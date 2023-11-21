@@ -3,7 +3,7 @@
 set -e
 
 COMPONENT=frontend
-Logfile= "/tmp/#COMPONENT.log"
+Logfile= "/tmp/$COMPONENT.log"
 
 stat()
 {

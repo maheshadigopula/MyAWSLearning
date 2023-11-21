@@ -2,7 +2,7 @@
 
 COMPONENT=frontent
 
-echo "\e[32m________$COMPONENT Configuration Started_________\e[0m"
+echo -e "\e[32m________$COMPONENT Configuration Started_________\e[0m"
 
 
 yum install nginx -y

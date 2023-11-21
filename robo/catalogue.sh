@@ -29,13 +29,13 @@ unzip -o /tmp/$COMPONENT.zip &>>$Logfile
 stat $?
 
 echo -n "Changing the ownership to ${APPUSER} :" 
-mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT
-chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
+mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT &>>$Logfile
+chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT &>>$Logfile
 stat $?
 
 echo -n "Installing $COMPONENT Dependencies:"
-cd /home/roboshop/catalogue
-npm install
+cd /home/roboshop/catalogue &>>$Logfile
+npm install &>>$Logfile
 stat $?
 
 echo -n "Configuring ${COMPONENT} Dependencies :"
@@ -44,10 +44,10 @@ sed -i -e 's/MONGO_DNSNAME/172.31.0.209' /etc/systemd/system/${COMPONENT}.servic
 stat &?
 
 echo -n "Restarting $COMPONENT services:"
-systemctl daemon-reload
-systemctl start catalogue
-systemctl enable catalogue
-systemctl status catalogue -l
+systemctl daemon-reload &>>$Logfile
+systemctl start catalogue &>>$Logfile
+systemctl enable catalogue &>>$Logfile
+systemctl status catalogue -l &>>$Logfile
 stat $?
 
 

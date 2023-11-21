@@ -52,3 +52,11 @@ mv static/* .
 rm -rf frontend-main README.md &>>$Logfile
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>$Logfile
 stat $?
+
+echo -n "Restarting Nignx :"
+systemctl enable nginx    &>>$Logfile
+systemctl restart nginx   &>>$Logfile
+stat $?
+
+echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"
+

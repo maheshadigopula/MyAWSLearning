@@ -40,7 +40,7 @@ stat $?
 
 echo -n "Configuring ${COMPONENT} Dependencies :"
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service 
-sed -i -e 's/MONGO_DNSNAME/172.31.0.209' /etc/systemd/system/$COMPONENT.service 
+sed -i -e 's/MONGO_DNSNAME/172.31.0.209/' /etc/systemd/system/$COMPONENT.service 
 stat $?
 
 echo -n "Restarting $COMPONENT services:"

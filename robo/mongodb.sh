@@ -13,12 +13,12 @@ stat $?
 
 
 echo -n "\e[32mInstalling $COMPONENT:\e[0m"
-yum install -y mongodb-org
+yum install -y mongodb-org &>>$Logfile
 stat $?
 
 echo -n "e[32mStarting $COMPONENT:\e[0m"
-systemctl enable mongod
-systemctl start mongod
+systemctl enable mongod &>>$Logfile
+systemctl start mongod &>>$Logfile
 stat $?
 
 

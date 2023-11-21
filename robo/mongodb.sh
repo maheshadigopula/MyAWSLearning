@@ -5,7 +5,7 @@ source robo/common.sh
 COMPONENT=mongodb
 
 
-echo -e "\e[31m________Configuration Started________\e[0m"
+echo -e "\e[33m________Configuration Started________\e[0m"
 
 echo -n "Downloading $COMPONENT:"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
@@ -35,7 +35,7 @@ stat $?
 
 echo -n "Extracting the $COMPONENT schema:"
 cd /tmp
-unzip $COMPONENT.zip &>>$Logfile
+unzip -o $COMPONENT.zip &>>$Logfile
 stat $?
 
 
@@ -44,3 +44,6 @@ cd $COMPONENT-main
 mongo < catalogue.js &>>$Logfile
 mongo < users.js &>>$Logfile
 stat $?
+
+
+echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"

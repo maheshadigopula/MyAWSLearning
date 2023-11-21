@@ -3,7 +3,7 @@
 set -e
 
 COMPONENT=frontend
-Logfile= "/tmp/$COMPONENT.log"
+
 
 ID={id -u}
 if [ $ID -ne 0 ] ; then
@@ -26,5 +26,5 @@ stat()
 echo -e "\e[32m________$COMPONENT Configuration Started_________\e[0m"
 
 echo -n "Installing Ngnix: "
-yum install nginx &>> $Logfile
+yum install nginx &>>/tmp/$COMPONENT.log
 stat $?

@@ -38,17 +38,17 @@ curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPO
 stat $?
 
 echo -e -n "Clearing the default content: "
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html &>>$Logfile
 rm -rf *
 stat $?
 
 echo -e -n "Extracting the $COMPONENT:"
-unzip /tmp/$COMPONENT.zip
+unzip /tmp/$COMPONENT.zip &>>$Logfile
 stat $?
 
 echo -e -n "Copying the ${COMPONENT}: "
 mv frontend-main/* .
 mv static/* .
-rm -rf frontend-main README.md
-mv localhost.conf /etc/nginx/default.d/roboshop.conf
+rm -rf frontend-main README.md &>>$Logfile
+mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>$Logfile
 stat $?

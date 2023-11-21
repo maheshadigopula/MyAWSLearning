@@ -7,16 +7,16 @@ COMPONENT=mongodb
 
 echo -e "\e[32m________Configuration Started________\e[0m"
 
-echo -n -e "\e[32mDownloading $COMPONENT:\e[0m"
+echo -n "Downloading $COMPONENT:"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 stat $?
 
 
-echo -n -e "\e[32mInstalling $COMPONENT:\e[0m"
+echo -n "Installing $COMPONENT:"
 yum install -y mongodb-org &>>$Logfile
 stat $?
 
-echo -n -e "e[32mStarting $COMPONENT:\e[0m"
+echo -n "Starting $COMPONENT:"
 systemctl enable mongod &>>$Logfile
 systemctl start mongod &>>$Logfile
 stat $?

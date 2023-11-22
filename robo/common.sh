@@ -59,7 +59,7 @@ Downloading_And_Extracting()
 NPM_Install()
 {  
     echo -n "Installing $COMPONENT Dependencies:"
-    cd /home/roboshop/catalogue &>>$Logfile
+    cd /home/roboshop/$COMPONENT &>>$Logfile
     npm install &>>$Logfile
     stat $?
 }

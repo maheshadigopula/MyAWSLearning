@@ -1,5 +1,5 @@
 
-
+APPUSER=roboshop
 Logfile="/tmp/$COMPONENT.log"
 
 ID=$(id -u)

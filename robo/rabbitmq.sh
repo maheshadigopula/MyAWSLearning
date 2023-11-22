@@ -32,3 +32,4 @@ rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$Logfile
 stat $?
 
 echo -e "\e[31m __________ $COMPONENT Installation Completed _________ \e[0m"
+

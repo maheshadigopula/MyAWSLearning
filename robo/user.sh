@@ -11,3 +11,6 @@ Downloading_And_Extracting
 NPM_Install
 Configuring_SVC
 
+
+echo -e "\e[31m_____________Configuration Completed_______________\e[0m"
+

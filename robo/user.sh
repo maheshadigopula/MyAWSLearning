@@ -3,7 +3,7 @@
 source robo/common.sh
 COMPONENT=user
 
-echo -e "\e[31m_________Configuration started_________\e[0m"
+echo -e "\e[33m_________Configuration started_________\e[0m"
 
 NODEJS
 Creating_User
@@ -12,5 +12,5 @@ NPM_Install
 Configuring_SVC
 
 
-echo -e "\e[31m_____________Configuration Completed_______________\e[0m"
+echo -e "\e[33m_____________Configuration Completed_______________\e[0m"
 

@@ -3,7 +3,7 @@
 source robo/common.sh
 COMPONENT=payment
 
-echo -e "\e[31m_____________Configuration started__________\e[0m"
+echo -e "\e[33m_____________Configuration started__________\e[0m"
 
 echo -n "Installing python3 and other dependencies:"
 yum install python36 gcc python3-devel -y &>>$COMPONENT
@@ -13,7 +13,7 @@ Creating_User
 Downloading_And_Extracting
 
 cd /home/$APPUSER/$COMPONENT 
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt &>>$Logfile
 
 USERID=$(id -u roboshop)
 GRPID=$(is -g roboshop)
@@ -25,4 +25,4 @@ stat $?
 Configuring_SVC
 
 
-echo -e "\e[31m_____________Configuration Completed_______________\e[0m"
+echo -e "\e[33m_____________Configuration Completed_______________\e[0m"

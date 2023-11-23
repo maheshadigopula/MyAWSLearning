@@ -6,7 +6,7 @@ COMPONENT=payment
 echo -e "\e[31m_____________Configuration started__________\e[0m"
 
 echo -n "Installing python3 and other dependencies:"
-yum install python36 gcc python3-devel -y
+yum install python36 gcc python3-devel -y &>>$COMPONENT
 stat $?
 
 Creating_User

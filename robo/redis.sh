@@ -3,7 +3,7 @@
 source robo/common.sh
 COMPONENT=redis
 
-echo -e "\e[31m_________Configuration started_________\e[0m"
+echo -e "\e[33m_________Configuration started_________\e[0m"
 
 
 echo -n "Configuring the $COMPONENT Repo:"
@@ -25,3 +25,4 @@ systemctl enable $COMPONENT &>>$Logfile
 systemctl restart  $COMPONENT &>>$Logfile
 stat $? 
 
+echo -e "\e[33m______ $COMPONENT Configuration Completed _________ \e[0m"

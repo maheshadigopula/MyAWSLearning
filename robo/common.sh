@@ -74,9 +74,9 @@ Configuring_SVC()
 
     echo -n "Restarting $COMPONENT services:"
     systemctl daemon-reload &>>$Logfile
-    systemctl start catalogue &>>$Logfile
-    systemctl enable catalogue &>>$Logfile
-    systemctl status catalogue -l &>>$Logfile
+    systemctl start $COMPONENT &>>$Logfile
+    systemctl enable $COMPONENT &>>$Logfile
+    systemctl status $COMPONENT -l &>>$Logfile
     stat $?
 }
 

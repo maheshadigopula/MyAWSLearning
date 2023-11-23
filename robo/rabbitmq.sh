@@ -3,7 +3,7 @@
 source robo/common.sh
 COMPONENT=rabbitmq
 
-echo -e "\e[31m_____________Configuration Started______________\e[0m"
+echo -e "\e[33m_____________Configuration Started______________\e[0m"
 
 echo -n "Downloading $COMPONENT dependencies:"
 curl -s https://packagecloud.io/install/repositories/$COMPONENT/erlang/script.rpm.sh | sudo bash &>>$Logfile
@@ -31,5 +31,5 @@ rabbitmqctl set_user_tags roboshop administrator &>>$Logfile
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$Logfile
 stat $?
 
-echo -e "\e[31m __________ $COMPONENT Installation Completed _________ \e[0m"
+echo -e "\e[33m __________ $COMPONENT Installation Completed _________ \e[0m"
 

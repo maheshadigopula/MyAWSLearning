@@ -82,7 +82,7 @@ Configuring_SVC()
 
 JAVA()
 {
-    echo "Installing Maven:"
+    echo -n "Installing Maven:"
     yum install maven -y  &>>$Logfile
     stat $?
 }

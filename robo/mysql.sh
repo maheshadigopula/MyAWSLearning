@@ -37,9 +37,9 @@ if [ $? -eq 0 ]; then
 fi
 
 echo -n "Downloading the $COMPONENT schema :"
-curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>>$Logfile
 cd /tmp
-unzip -o $COMPONENT.zip
+unzip -o $COMPONENT.zip &>>$Logfile
 stat $?
 
 echo -n "Injecting the $COMPONENT Schema"

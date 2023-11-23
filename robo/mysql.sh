@@ -3,7 +3,7 @@
 source robo/common.sh
 COMPONENT=mysql
 
-echo -e "\e[31m_____________Configuration Started___________\e[0m"
+echo -e "\e[33m_____________Configuration Started___________\e[0m"
 
 echo -n "Configuring the $COMPONENT Repo:"
 curl -s -L -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/$COMPONENT.repo
@@ -22,7 +22,7 @@ echo -n "Fetching default root password:"
 DEFAULT_ROOT_PWD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
 stat $?
 
-echo "show databases;" | mysql -uroot -pRoboShop@1 &>>$Logfile
+echo show databases | mysql -uroot -pRoboShop@1 &>>$Logfile
 if [ $? -ne 0 ]; then
     echo -n "Resetting the default root password:"
     echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'pRoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PWD}  &>>$Logfile
@@ -47,7 +47,7 @@ cd $COMPONENT-main
 mysql -u root -pRoboShop@1 <shipping.sql &>>$Logfile
 stat $?
 
-echo -e "\e[31m_____________Configuration Completed_______________\e[0m"
+echo -e "\e[33m_____________Configuration Completed_______________\e[0m"
 
 
 

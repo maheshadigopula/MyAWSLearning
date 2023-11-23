@@ -11,7 +11,7 @@ curl -L https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/$C
 stat $?
 
 echo -n "Installing $COMPONENT:"
-yum install redis-6.2.13 -y &>>&Logfile
+yum install redis-6.2.13 -y &>>$Logfile
 stat $?
 
 echo -n "whitelisting the $COMPONENT"
@@ -21,7 +21,7 @@ stat $?
 
 echo -n "Starting $COMPONENT : "
 systemctl daemon-reload 
-systemctl enable $COMPONENT &>> "${LOFGILE}"
-systemctl restart  $COMPONENT &>> "${LOFGILE}"
+systemctl enable $COMPONENT &>>$Logfile
+systemctl restart  $COMPONENT &>>$Logfile
 stat $? 
 

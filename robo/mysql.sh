@@ -10,7 +10,7 @@ curl -s -L -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com
 stat $?
 
 echo -n "Installing the $COMPONENT:"
-yum install mysql-community-server -y
+yum install mysql-community-server -y &>>$Logfile
 stat $?
 
 echo -n "Starting the $COMPONENT:"
@@ -44,7 +44,7 @@ stat $?
 
 echo -n "Injecting the $COMPONENT Schema"
 cd $COMPONENT-main
-mysql -u root -pRoboShop@1 <shipping.sql
+mysql -u root -pRoboShop@1 <shipping.sql &>>$Logfile
 stat $?
 
 echo -e "\e[31m_____________Configuration Completed_______________\e[0m"

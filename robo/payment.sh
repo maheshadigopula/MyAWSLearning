@@ -19,7 +19,7 @@ USERID=$(id -u roboshop)
 GRPID=$(is -g roboshop)
 
 echo -n "Updating the UID and GID in $COMPONENT.ini file:"
-sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GRPID}" /home/$APPUSER/$COMPONENT/$COMPONENT.ini
+sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GRPID}" /home/$APPUSER/$COMPONENT/$COMPONENT.ini &>>$Logfile
 stat $?
 
 Configuring_SVC

@@ -7,7 +7,7 @@ COMPONENT=frontend
 echo -e "\e[33m________$COMPONENT Configuration Started_________\e[0m"
 
 echo -n "Installing Ngnix:"
-yum install nginx &>>$Logfile
+yum install nginx 
 stat $?
 
 echo -n "Starting Nginx:"

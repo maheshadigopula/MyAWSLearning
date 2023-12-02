@@ -76,7 +76,7 @@ Configuring_SVC()
     systemctl daemon-reload &>>$Logfile
     systemctl start $COMPONENT &>>$Logfile
     systemctl enable $COMPONENT &>>$Logfile
-    systemctl status $COMPONENT -l &>>$Logfile
+    systemctl status $COMPONENT &>>$Logfile
     stat $?
 }
 

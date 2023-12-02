@@ -22,17 +22,17 @@ echo -n "Fetching default root password:"
 DEFAULT_ROOT_PWD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
 stat $?
 
-echo show databases | mysql -uroot -pRoboShop@1 &>>$Logfile
+echo show databases | mysql -uroot -pRoboShop@1 
 if [ $? -ne 0 ]; then
     echo -n "Resetting the default root password:"
-    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PWD}  &>>$Logfile
+    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PWD} 
     stat $?
 fi
 
-echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password; &>>$Logfile
+echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password; 
 if [ $? -eq 0 ]; then
     echo -n "Uninstalling Password Validate Plugin "
-    echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1 &>>$Logfile
+    echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1
     stat $?
 fi
 

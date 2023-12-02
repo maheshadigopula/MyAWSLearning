@@ -18,23 +18,22 @@ systemctl enable mysqld
 systemctl start mysqld
 stat $?
 
-echo -n "Fetching default root password:"
-DEFAULT_ROOT_PWD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
+echo -n "Fetching the default password :"
+DEFAULT_ROOT_PWD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}') 
 stat $?
 
-echo show databases | mysql -uroot -pRoboShop@1 
+echo "show databases;" | mysql -uroot -pRoboShop@1 
 if [ $? -ne 0 ]; then
-    echo -n "Resetting the default root password:"
-    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PWD} 
+    echo -n "Resetting the default root password :"
+    echo "ALTER USER 'root'@'localhost' IDENTIFIED By 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PWD} 
     stat $?
 fi
 
-echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password; 
-if [ $? -eq 0 ]; then
-    echo -n "Uninstalling Password Validate Plugin "
-    echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1
-    stat $?
-fi
+echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password  
+if [ $? -eq 0 ]; then 
+    echo -n "Uninstalling Password Validate Plugin :"
+    echo "uninstall plugin validate_password;"|  mysql -uroot -pRoboShop@1 
+fi 
 
 echo -n "Downloading the $COMPONENT schema :"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip" &>>$Logfile

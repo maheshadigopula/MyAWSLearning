@@ -86,3 +86,28 @@ JAVA()
     yum install maven -y  &>>$Logfile
     stat $?
 }
+
+
+PYTHON() {
+   echo -n "Installing python3 and other dependencies : "
+   yum install python36 gcc python3-devel -y  &>>Logfile
+   stat $? 
+
+    CREATE_USER             # Calling Create_User function to create user account
+
+    DOWNLOAD_AND_EXTRACT 
+
+    cd /home/$APPUSER/$COMPONENT/ 
+    pip3 install -r requirements.txt &>>Logfile
+    stat $?  
+
+    USERID=$(id -u roboshop)
+    GROUPID=$(id -g roboshop)
+
+    echo -n "Updating the UID and GID in the $COMPONENT.ini file : "
+    sed -i -e "/^uid/ c uid=${USERID}"  -e "/^gid/ c gid=${GROUPID}" /home/$APPUSER/$COMPONENT/$COMPONENT.ini 
+    stat $?  
+
+    CONFIGURE_SVC           # Configuring and starting service
+
+}
